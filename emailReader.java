@@ -26,10 +26,10 @@ public class emailReader {
 			reader.setDirectoryLocation(directory);
 			reader.downloadEmail(host, user, pass, port);
 		}
+	
 //-----------------------save directory location-------------------------------------------------
 	private String directory;
 	public void setDirectoryLocation(String dirLocation) { this.directory = dirLocation; }
-
 
 //-------------------------download email method-------------------------------------------------
 	public void downloadEmail(String host, String user, String pass, String port) 
