@@ -14,23 +14,26 @@ import javax.mail.Store;
 import javax.mail.internet.MimeBodyPart;
 
 public class emailReader {
-	//save directory location for attached files.
+//-------------main method to pass into download email params-------------------------------------
+		public static void main(String[]args) 
+		{
+			String host = "pop.gmail.com";
+			final String user = "EXAMPLE_USERNAME";
+			final String pass = "EXAMPLE_PASSWORD";
+			final String port = "995"; 
+			String directory = "ENTER DIRECTORY PATH HERE";
+			emailReader reader = new emailReader();		
+			reader.setDirectoryLocation(directory);
+			reader.downloadEmail(host, user, pass, port);
+		}
+//-----------------------save directory location-------------------------------------------------
 	private String directory;
 	public void setDirectoryLocation(String dirLocation) { this.directory = dirLocation; }
-	//main method to pass into download email params
-	
-	public static void main(String[]args) {
-		String host = "pop.gmail.com";
-		final String user = "EXAMPLE_USERNAME";
-		final String pass = "EXAMPLE_PASSWORD";
-		final String port = "995"; 
-		String directory = "ENTER DIRECTORY PATH HERE";
-		emailReader reader = new emailReader();		
-		reader.setDirectoryLocation(directory);
-		reader.downloadEmail(host, user, pass, port);
-	}
-	//download email method
-	public void downloadEmail(String host, String user, String pass, String port) {
+
+
+//-------------------------download email method-------------------------------------------------
+	public void downloadEmail(String host, String user, String pass, String port) 
+	{
 		Properties props = new Properties();
 		
 		//server settings
