@@ -22,7 +22,7 @@ public class emailReader {
 		final String user = "EXAMPLE_USERNAME";
 		final String pass = "EXAMPLE_PASSWORD";
 		final String port = "995"; 
-		String directory = "ENTER DIRECTORY PATH HERE";
+		String dir = "ENTER DIRECTORY PATH HERE";
 		emailReader reader = new emailReader();		
 		reader.setDirectoryLocation(directory);
 		reader.downloadEmail(host, user, pass, port);
