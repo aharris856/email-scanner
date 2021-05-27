@@ -41,8 +41,8 @@ public class emailReader {
 		props.put("mail.pop3.port", port);
 		//SSL
 		props.setProperty("mail.pop3.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
-		props.setProperty("mail.pop3.socketFactory.fallback", "false");
 		props.setProperty("mail.pop3.socketFactory.port", String.valueOf(port));
+		props.setProperty("mail.pop3.socketFactory.fallback", "false");
 		Session sess = Session.getDefaultInstance(props);
 		try {
 			// message store
