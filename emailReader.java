@@ -24,7 +24,7 @@ public class emailReader {
 		final String port = "995"; 
 		String dir = "ENTER DIRECTORY PATH HERE";
 		emailReader reader = new emailReader();		
-		reader.setDirectoryLocation(directory);
+		reader.setDirectoryLocation(dir);
 		reader.downloadEmail(host, user, pass, port);
 	}
 	
