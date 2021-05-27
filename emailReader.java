@@ -18,7 +18,7 @@ public class emailReader {
 //-------------main method to pass into download email params------------------------------------
 	public static void main(String[]args) 
 	{
-		String host = "pop.gmail.com";
+		String host = "EXAMPLE_HOST";
 		final String user = "EXAMPLE_USERNAME";
 		final String pass = "EXAMPLE_PASSWORD";
 		final String port = "995"; 
