@@ -18,31 +18,33 @@ public class emailReader {
 //-------------main method to pass into download email params------------------------------------
 	public static void main(String[]args) 
 	{
-		String host = "EXAMPLE_HOST";
-		final String user = "EXAMPLE_USERNAME";
-		final String pass = "EXAMPLE_PASSWORD";
-		final String port = "995"; 
-		String dir = "ENTER DIRECTORY PATH HERE";
+		String host = "pop.gmail.com"; //Enter Host name here (currently using gmail for mine)
+		final String user = "ENTER_EMAIL_HERE";
+		final String pass = "ENTER_PASSWORD_HERE";
+		String dir = "ENTER_SAVE_DIRECTORY_HERE";
 		emailReader reader = new emailReader();		
 		reader.setDirectoryLocation(dir);
-		reader.downloadEmail(host, user, pass, port);
+		reader.downloadEmail(host, user, pass);
 	}
 	
 //-----------------------save directory location-------------------------------------------------
 	public void setDirectoryLocation(String dirLocation) { this.directory = dirLocation; }
 
 //-------------------------download email method-------------------------------------------------
-	public void downloadEmail(String host, String user, String pass, String port) 
+	public void downloadEmail(String host, String user, String pass) 
 	{
+		final String port = "995"; 
 		Properties props = new Properties();
 		
 		//server settings
-		props.put("mail.pop3.host", host);
 		props.put("mail.pop3.port", port);
+		props.put("mail.pop3.host", host);
+		
 		//SSL
 		props.setProperty("mail.pop3.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
 		props.setProperty("mail.pop3.socketFactory.port", String.valueOf(port));
 		props.setProperty("mail.pop3.socketFactory.fallback", "false");
+		
 		Session sess = Session.getDefaultInstance(props);
 		try {
 			// message store
@@ -89,7 +91,7 @@ public class emailReader {
 					if(content != null)content  = contentObj.toString();
 				}
 				//print details
-				System.out.println("Message Number ("+(i+1)+"):\n From: "+from+"\n Subject: "+subject+"\n Date"+date+"\n Message: "+content+"\n Attachments: "+attachFiles);
+				System.out.println("Message Number ("+(i+1)+"):\n From: "+from+"\n Subject: "+subject+"\n Date: "+date+"\n Message: "+content+"\n Attachments: "+attachFiles);
 			}
 			//disconnect from message store
 			inbox.close(false);
